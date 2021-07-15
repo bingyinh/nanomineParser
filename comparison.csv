@@ -1,0 +1,624 @@
+Confidence,Header,Units
+4,Viscoelasticity (Pa),Pa
+4,current (A),A
+4,log M' (KPa),KPa
+4,J (A/m^2),A/m^2
+4,Breakdown Voltage (kV/m),kV/m
+4,G' (Mpa),Mpa
+4,Temperature(Â°C),Â°C
+4,Displacement (mm),mm
+4,Angular Frequency [rad/s],rad/s
+4,Temperature (C),C
+4,w(rad/s) (PVAc-23%),rad/s) (PVAc-23%
+4,Energy Density (J/m^3),J/m^3
+4,AC Peak Breakdown Field (kV/mm),kV/mm
+4,Filler content (wt %),wt %
+4,shear stress (Pa),Pa
+4,transverse electrical conductivity(S/m),S/m
+4,Storage modulus (GPa),GPa
+4,OHC strength(MPa),MPa
+4, PVAc 12% w (rad/s)  (red circles),rad/s)  (red circles
+4,comparative ac conductivity at 160 C (S/cm),S/cm
+4,Electric Conductivity (S/cm),S/cm
+4,wnorm(rad/s),rad/s
+4,viscosity (Pa-s),Pa-s
+4,thickness (cm),cm
+4,strength (MV/cm),MV/cm
+4,q (n/m),n/m
+4,U (V),V
+4,Shear storage modulus G (GPa),GPa
+4,complex viscosity (Pa s),Pa s
+4,Intensity (A.U.),A.U.
+4,stress via extension slope(MPa),MPa
+4,"E"" (MPa)",MPa
+4,tan del (%),%
+4,Stress (kPa),kPa
+4,Time (min),min
+4,Cp (J/gK),J/gK
+4,ang. frequency (rad/s),rad/s
+4,E (kV/cm),kV/cm
+4,Complex viscocity (Pa s),Pa s
+4,Intensity (C.P.S),C.P.S
+4,breakdown strength (MV/cm),MV/cm
+4,sigma (S/cm),S/cm
+4,"G"" (Mpa)",Mpa
+4,loss modulus (Pa),Pa
+4,Complex Modulus (Pa),Pa
+4,unidirectional modulus(GPa),GPa
+4,short beam strength(MPa),MPa
+4,Electric Field (kV/mm),kV/mm
+4,Frequency (Hz),Hz
+4,log t/a (1/s),1/s
+4,lint (nm),nm
+4,1/T (K^-1),T (K^-1)
+4,Electric conductivity (S/cm),S/cm
+4,Loss Modulus (Pa),Pa
+4,Complex Viscosity (Pa-s),Pa-s
+4,Angular frequency (rad/s),rad/s
+4,1000/Tf (K^-1),K^-1
+4,1000/T  (K^-1),K^-1
+4,Probability of Failure (%),%
+4,Real Impedance (Ohm),Ohm
+4,omega (rad/s),rad/s
+4,freq (rad/s),rad/s
+4,storage modulus (Mpa),Mpa
+4,Thermal conductivity (W/mK),W/mK
+4,Electric field (MV/m),MV/m
+4,Nanoparticle size (nm),nm
+4,Water Content (wt%),wt%
+4,Fequency (Hertz),Hertz
+4,conductivity (s/m),s/m
+4,Shear stress (Pa),Pa
+4,quasi-isotropic modulus(GPa),GPa
+4,Concentration of BaTiO3 (vol%),vol%
+4,Heat Flow (mW),mW
+4,AC Breakdown Voltage (kV/mm),kV/mm
+4,Time (s),s
+4,temperature (Celsius),Celsius
+4,Probability of failure (%),%
+4,Log storage modulus (Pa),Pa
+4,Strain [%],Strain
+4,Storage Modulus (MPa),MPa
+4,Temperature (Â°C),Â°C
+4,E' (Mpa),Mpa
+4,Complex viscosity (Pa.s),Pa.s
+4,crack extension (mm),mm
+4,"e"" (PVAc-23% red squares)",PVAc-23% red squares
+4,Frequency(rad/s),rad/s
+4,Tan del (%),%
+4,Complex viscosity (Pa*s),Pa*s
+4,conductivity (S/cm),S/cm
+4,"e"" (grey circles)",grey circles
+4,Storage modulus (MPa),MPa
+4,Frequecy (Hz),Hz
+4,Glass transition temperature(C),C
+4,Water content (wt%),wt%
+4,Water Uptake (%),%
+4,Shear rate (1/s),1/s
+4,time (s),s
+4,"E"" (Pa)",Pa
+4,Breakdown Voltage (kV/mm),kV/mm
+4,e' (blue squares),blue squares
+4,Binding Energy (eV),eV
+4,Elastic Modulus (GPa),GPa
+4,Viscoelasticity(Pa),Pa
+4,Modulus (GPa),GPa
+4,Reversible specific heat capacity (J/(gK)),J/(gK
+4,extensional viscosity (Pa.s),Pa.s
+4,"e"" (neat PVAc grey circles)",neat PVAc grey circles
+4,Storage Modulus [Pa],Pa
+4,"Oscillation frequency, Ï‰ (Hz)",Ï‰ (Hz)
+4,Storage modulus (Pa),Pa
+4,E (Mpa),Mpa
+4,Conductivity (S/cm),S/cm
+4,Heat Flow (W/g),W/g
+4,Normalized mass remaining (a.u.),a.u.
+4,Absorbance (a.u.),a.u.
+4,Storage Modulus E' (GPa),GPa
+4,e' (neat PVAc),neat PVAc
+4,Energy Density (J/cm3),J/cm3
+4,deltaH(J/g),J/g
+4,Engineering stress (MPa),MPa
+4,Loss Modulus [Pa],Pa
+4,w (rad/s),rad/s
+4,Log[frequency (Hz)],Hz
+4,Failure Probability [%],%
+4,Weight (%),%
+4,Log E' (Pa),Pa
+4,dynamic shear viscosity (Pa-s),Pa-s
+4,fmax (Hz),Hz
+4,Frequency (kHz),kHz
+4,"Storage Modulus, G' (Pa)",G' (Pa)
+4,Resisitivity (ohms-cm),ohms-cm
+4,E' (MPa),MPa
+4,Stress(MPa),MPa
+4,shear modulus (KPa),KPa
+4,stress (MPa),MPa
+4,complex melt viscosity(Pa s),Pa s
+4,Storage modulus (kPa),kPa
+4,log time (s),s
+4,Loss modulus(MPa),MPa
+4,Conductivity (s/m),s/m
+4,storage modulus (MPa),MPa
+4,"PVAc-12% e"" (red circles)",red circles
+4,Complex Viscosity (Pa-sec),Pa-sec
+4,Loss modulus (Pa),Pa
+4,silica content (wt %),wt %
+4,Current (A/cm^2),A/cm^2
+4,frequency (rad/sec),rad/sec
+4,Loss Modulus (MPa),MPa
+4,Concentration of Silica (wt%),wt%
+4,shear storage modulus (Pa),Pa
+4,AC Breakdown Strength (kV/mm),kV/mm
+4,Strain (mm/mm),Strain
+4,Electric field (kV/cm),kV/cm
+4,Tensile Stress (Mpa),Mpa
+4,position in sample (mm),mm
+4,Angular Velocity (rad/s),rad/s
+4,Temperature (C) ,C
+4,time (min),min
+4,Probability (Percent),Percent
+4,tensile strength(MPa),MPa
+4,Breakdown Voltage Peak (kV/mm),kV/mm
+4,Breakdown voltage (kV/mm),kV/mm
+4,w(rad/s),rad/s
+4,Loss modulus (GPa),GPa
+4,WAT (Hz),Hz
+4,Breakdown Strength (MV/m),MV/m
+4,"e"" (red circles)",red circles
+4,e' (PVAc-23% red squares),PVAc-23% red squares
+4,temperature (C),C
+4,Electrical conductivity (S/m),S/m
+4,"Storage Modulus, E (Mpa)",Mpa
+4,Electric Field (MV/m),MV/m
+4,1000/T (K^-1),T (K^-1)
+4,Frequency (rad/s),rad/s
+4,T (K),K
+4,Current density (A/cm^2),A/cm^2
+4,Log-storage modulus (Pa),Pa
+4,quasi-isotropic modulus modulus(GPa),GPa
+4,log[10]conductivity (S/cm),S/cm
+4,Failure Strain (%),Strain
+4,"e"" (Exp)",Exp
+4,Molecular weight (kg/mol),kg/mol
+4,Reduced Modulus (GPa),GPa
+4,Log E' (Mpa),Mpa
+4,Storage Modulus(MPa),MPa
+4,E' (Pa),Pa
+4,DC Breakdown Voltage (kV/mm),kV/mm
+4,strain (mm/mm),strain
+4,E (kV/mm),kV/mm
+4,energy storage density (J/cm^3),J/cm^3
+4,Conductivity (S/m),S/m
+4,Frequency(Hz),Hz
+4,"e""(Exp)",Exp
+4,stress (kPa),kPa
+4,Storage Modulus (Mpa),Mpa
+4,AC Dielectric Strength (kV/mm),kV/mm
+4,Wavelength (nm),nm
+4,T (C),C
+4,Time (hours),hours
+4,Angular velocity (rad/s),rad/s
+4,Static Stress (MPa),MPa
+4,Graft Density (ch/nm^2),ch/nm^2
+4,conductivity (S/m),S/m
+4,Frequency (GHz),GHz
+4,Storage modulus  (Pa),Pa
+4,Storage Modulus (GPa),GPa
+4,PVAc-32% w (rad/s)  (red circles),rad/s)  (red circles
+4,AC conductivity (S/cm),S/cm
+4,True Stress (MPa),MPa
+4,Frequency (rad/sec),rad/sec
+4,Storage Modulus (Pa),Pa
+4,Discharged energy density (J/cm3),J/cm3
+4,Tensile Strength (MPa),MPa
+4,Loss Modulus (Mpa),Mpa
+4,AC Conductivity (S/cm),S/cm
+4,Tube Diameter (nm),nm
+4,Electric field (kV/mm),kV/mm
+4,I(q)(cm^-1),cm
+4,Static Strain (%),Strain
+4,"Loss Modulus, G'' (Pa)",G'' (Pa)
+4,Stress (MPa),MPa
+4,Log (AC Conductivity (S.m-1)),AC Conductivity (S.m-1
+4,Freq (rad/sec),rad/sec
+4,Stress (Mpa),Mpa
+4,w(rad/s) (neat PVAc),rad/s) (neat PVAc
+4,"e"" (blue squares)",blue squares
+4,storage modulus (Pa),Pa
+4,Frequency (Hertz),Hertz
+4,Tensile stress (MPa),MPa
+4,Free Space Length (nm),nm
+4,electric field (kV/mm),kV/mm
+4,Eta (Pa*s),Pa*s
+4,CRR length scale (nm),nm
+4,Temperature (K),K
+4,Temperature (celsius),celsius
+4,Yield Stress (MPa),MPa
+4,"e"" (PVAc-32% red squares)",PVAc-32% red squares
+4,Frequency(kHz),kHz
+4,CNF content(phr),phr
+4,Shear Storage Modulus (Pa),Pa
+4,Resistivity (ohms-cm),ohms-cm
+4,"E""  (Pa)",Pa
+4,"e"" (Ads NPs)",Ads NPs
+4,Real part of Conductivity (S/cm),S/cm
+4,Strain (%),Strain
+4,Viscosity (Pa.s),Pa.s
+4,Filler Content (wt %),wt %
+4,G' (Pa),G' (Pa)
+4,e' (red circles),red circles
+4,G'' (Pa),G'' (Pa)
+4,Temp (C),C
+4,energy density (J/cm^3),J/cm^3
+4,electric field (MV/m),MV/m
+4,Temperature(C),C
+4,frequency (Hz),Hz
+4,"PVAc-32% e"" (red circles)",red circles
+4,frequency (rad/s),rad/s
+4,"e"" (red squares)",red squares
+4,f (Hz),Hz
+4,Breakdown Strength (kV/mm),kV/mm
+4,Shear Loss Modulus (Pa),Pa
+4,Temperature (Celsius),Celsius
+4,Loss modulus (MPa),MPa
+4,Strain (mm),Strain
+4,Collapse Strength (MPa),MPa
+4,AC Dielectric Strength [kV/mm],kV/mm
+4,Electric Field (V/cm),V/cm
+4,temperature (C) ,C
+4,Flexural stress (MPa),MPa
+3,J (A/mm^2),mm^2
+3,Temperature ( C ),C
+3,Tempeature (deg C),C
+3,Critical strain (%),strain
+3,glass transition temperature ( C ),C
+3,viscosity ((Pa)(s)),Pa
+3,Shear Storage Modulus ( Pa s),Pa s
+3,Tensile Strain (%),Strain
+3,Log E (kV / cm),cm
+3,Intensity (cm^(-1)),cm
+3,Field Intensity at Electrode (kV/mm Peak),kV/mm
+3,Temperature (deg. Celcius),Celcius
+3,log (Shifted Frequency (Hz)),Hz
+3,Time (sec),s
+3,Temperature (C ),C
+3,conductivity (S cm^-1),cm
+3,Linear Intensity (a.u. shifted),a.u.
+3,Dynamic Viscosity ( Pa s),Pa s
+3,Current Density (A cm^(-2)),cm
+3,E' ( Mpa),Mpa
+3,ln (Conductivity) (S/m),S/m
+3,electrical volume resistivity (ohm cm),vol
+3,Temperature (Cel.),C
+3,Temperature ( C),C
+3,Loss Modulus ( Mpa),Mpa
+3,temperature ( C ),C
+3,Square Root Current (V/m^1/2),V/m
+3,e' (neat PVAc) grey circles),neat PVAc) grey circles
+3,storage modulus ( Pa ),Pa
+3,Log (frequency (Hz)),Hz
+3,Frequency (log Hz),Hz
+3,Ac conductivity (S(cm)),S(cm)
+3,Relaxation Spectra H(t) (Pa),Pa
+3,Cp (J/(g*K) (Polymer matrix),J/(g*K) (Polymer matrix
+3,Shear rate (s^(-1)),s
+3,Natural Log of Conductivity (ln (S/m)),S/m
+3,Cumulative Percentage (%),Percent
+3,CNT (vol. %),vol
+3,time (sec),s
+3,storage modulus (*10^-9 Pa),Pa
+3,strain rate (min^-1),strain
+3,AC Breakdown Strenght (MV/mm),MV/m
+3,ion mobility (cm^2/Vs),cm
+3,Average Number of Particles per Cell (Qmean),um
+3,Storage Modulus (E')(Mpa),Mpa
+3,Delta(Tg (Cel.)),C
+3,Log(E') (Pa),Pa
+3,Temperature (deg C),C
+3,MWCNT content ( wt %),wt %
+3,viscosity ( cP ),cP
+3,Temperature (Deg. Celcius),Celcius
+3,Flexural strain (%),strain
+2,ln q1 (*C/min),C/min
+2,surface coverage (n/nm),nm
+2,Normalized Storage Modulus (E'/E'max),s
+2,log(fc-f),g
+2,Log (-Ln(1-P)),g
+2,Temperature (*C),C
+2,Weight loss (%),s
+2,"Temperature, C",C
+2,Relative Permittivity (imaginary),g
+2,"Concentration normalized Intensity, I ",C
+2,DC conductivity rate (sec^-1),C
+2,Frequency (rad / sec),q
+2,Engineering strain,strain
+2,log sig,s
+2,Change in Glass Transition Temperature (deg C),C
+2,Imaginary Part of the Complex Permittivity,Pa
+2,Applied Flux Density (T),s
+2,Real Part of the Complex Permittivity,Pa
+2,Cp (Cal/g*C),C
+2,Time to Failure (Minutes),s
+2,Particle Free Space Length (nm),Pa
+2,weight fraction of alumina ( log % ),min
+2,Dielectric Constant at 1 kHz,kHz
+2,AC Electrical Impedance (Z),C
+2,weight loss (%),s
+2,applied stress intensity range,s
+2,storage modulus (dy n/cm^2),cm
+2,Concentration of BaTiO3 (%vol),vol
+2,normalized tan delta,tan delta
+2,Strain (kPa),Strain
+2,Dielectric Constant,C
+2,Relative Dieletric Constant,C
+2,Angle (2theta),g
+2,log(-ln(1-P)),g
+2,"Normalized Loss Modulus (E""/E""max)",s
+2,Relative Density (density of foam/density of solid),s
+2,Log(loss factor e''),s
+2,Influence of interfacial energetics and processing conditions (sinh^2(2Wpf/Wff-1)log(Eg+1),s
+2,Angle 2q (deg),q
+2,DC conduction rate (sec^-1),C
+2,heat flow (w/g),g
+2,strain (%),strain
+2,Log(loss factor),s
+2,shear modulus G increase (%),s
+2,sigma(yc)/sigma(yp),s
+2,Damping Coefficient,Da
+2,Hencky strain,strain
+2,strain to failure(%),strain
+2,Current density (A/cm2),cm
+2,alpha (degree),g
+2,current (amps),s
+2,relative standard deviation of filler aspect ratio,s
+2,H-Bond Density (bonds/nm2),nm
+2,Surface area of filler phase (Ifiller),s
+2,Conductivity (S m^-1),C
+2,"Normalized Loss Modulus (E""/Emax)",s
+2,Reduced Modulus (Gpa),s
+2,Charge Density (C/m^3),C
+2,Resistivity (ohms - m),s
+2,Influence of interfacial energetics and processing conditions f(matrix)(sinh^2(2Wpf/Wff-1)log(Eg+1)+Co,C
+2,electric field strength relative to applied field,s
+2,loss modulus (dy n/cm^2),cm
+2,log of specific shear energy,s
+2,steady-state Gic(J/m2),s
+2,Real Part of Dielectric Permittivity,Pa
+2,the product of static dielectric constant and frequency (sec^-1),q
+2,Weibull Parameter,Pa
+2,Current (A),C
+2,Log(-ln(1-P)),g
+2,Imaginary Part of Dielectric Permittivity,Pa
+2,"Scattering vector, q ",q
+2,work of adhesion between filler and polymer to the work of adhesion of filler to filler (WPF/WFF),s
+2,deltaHa (cal/g.s),s
+2,Graft Density (chain/nm^2),nm
+2,Relative density (density of foam/ density of solid),s
+2,True Strain,Strain
+2,"Storage Modulus, E' (Gpa)",s
+2,q(A^(-1)),q
+2,frequency (rad per sec),q
+2,Aspect ratio (L/d),s
+2,"Dielectric Constant, Dk",C
+2,Silica Loading (mass %),s
+2,q(A^-1),q
+2,Dielectric constant (Dk),s
+2,T (*C),C
+2,Damping Factor [1],Da
+2,E(v/mm),mm
+2,DC conductivity (S/cm),DC conductivity (S/cm)
+2,Mass (%),s
+2,dispersive surface energy (mJ/m^2),J/m^2
+2,"Stress, MPa",MPa
+2,Relative Dielectric Constant,C
+2,interlaminar fracture toughness (J/m2),min
+2,Wavenumber (cm-1),um
+1,Relative Imaginary permittivity,g
+1,Effective dielectric loss,s
+1,AC dielectric Constant,C
+1,Differential of Imaginary Magnetic Susceptibility,s
+1,imaginary part of dielectric constant,s
+1,storage modulus,s
+1,Volume fraction of MWNTs,um
+1,Sample Mass,s
+1,log Real Permittivity,g
+1,Percent,Percent
+1,real part dielectric constant,s
+1,AC Dielectric Constant,C
+1,Absorbance,s
+1,2277.14144,1
+1,dielectric constant,s
+1,287.8112756,1
+1,Effective dielectric constant,s
+1,loss tangent,s
+1,Tan(delta),
+1,Fig_5_b_Unfilled_1Hz,Hz
+1,intensity ratio,s
+1,tangent delta,g
+1,electric modulus,s
+1,Tangent Delta,g
+1,Log E,g
+1,Fig_8_b_0C,C
+1,temperature/C,C
+1,Loss Tangent,s
+1,150.8384835,1
+1,Dielectric constant epsilon',s
+1,I,I
+1,Tan (Delta),
+1,adhesion energy,s
+1,Permittivity [real part],
+1,Fig_8_a_0.0_real,g
+1,Imaginary Electric modulus,s
+1,Number of MWNT along the fracture for EPNT/PC,um
+1,Loss tangent,s
+1,imaginary permittivity,g
+1,stress,s
+1,Volume % Silica,um
+1,imaginary of dielectric function,g
+1,Fig_5_a_0.10_1Hz,Hz
+1,Tg,g
+1,Log-storage modulus,s
+1,Dielectric Loss,s
+1,tan delta,tan delta
+1,Fig_5_a_Unfilled_1Hz,Hz
+1,Bending Tan delta,g
+1,0.011097134,1
+1,Loss factor,s
+1,Fig_5_a_0.075_1Hz,Hz
+1,conductivity (S/c),
+1,Imaginary dielectric function,g
+1,probability distribution function,s
+1,Fig_5_b_0.10_1Hz,Hz
+1,Normalized Elastic Modulus E/Eneat,s
+1,tan(delta),
+1,Imaginary permittivity,g
+1,1000/T,1
+1,"dielectric loss, tangent",s
+1,Imaginary Relative Permittivity,g
+1,Time (h),
+1,Loss Modulus,s
+1,2.612163856,1
+1,Imaginary Dielectric constant,s
+1,"Normalized Elastic Modulus, E/Eneat",s
+1,Number of MWNT along the fracture edge dissolved in THF,um
+1,peak next to the anode (arbitrary unit),
+1,Dielectric Loss Tangent,s
+1,0.105896797,1
+1,loss modulus,s
+1,Loss modulus,s
+1,Strain,Strain
+1,Log f,g
+1,strain,strain
+1,Frequency,q
+1,static dielectric constant,s
+1,Log Tan delta,g
+1,Imaginary part of dielectric constant,s
+1,Diamine Fraction,min
+1,AC conductivity,C
+1,Storage Modulus,s
+1,log Frequency,q
+1,Lost tangent,s
+1,loss factor,s
+1,Stress,s
+1,Storage modulus,s
+1,Imaginary electric modulus,s
+1,Fig_5_a_0.05_1Hz,Hz
+1,Heat release Rate,s
+1,complex viscosity,s
+1,Normal Position,s
+1,Number of MWNT within grip region dissolved in THF,um
+1,Relative Imaginary Permittivity,g
+1,natural log of conductivity,g
+1,Imaginary,g
+1,the product of epsilon and omega,s
+1,Fig_5_b_0.025_1Hz,Hz
+1,frequency,q
+1,Fig_5_b_0.05_1Hz,Hz
+1,weight fraction of PEG600,g
+1,Relative permittivity (Real part),
+1,Young's Modulus,s
+1,19.64551973,1
+1,dissipation factor,s
+1,dielectric loss,s
+1,Dielectric loss,s
+1,MassLossRate,s
+1,Elongation,g
+1,surface area of filler phase,s
+1,Dielctric Loss Factor,s
+1,dielectric loss tangent,s
+1,Diamine fraction,min
+1,strain %,strain
+1,imaginary part of dielectric function,g
+1,loss tanget,s
+1,"Dielectric constant, Dk",s
+1,Tg/T,g
+1,q,q
+1,K,K
+1,Volume Fraction of MWNT,um
+1,the change in glass-transition temperature,s
+1,3.178211933,1
+1,Mass Loss Rate,s
+1,Viscosity,s
+1,Imaginary Permittivity,g
+1,dielectric tangent,g
+1,crystallinity weight fraction,s
+1,Real part of dielectric constant,s
+1,Heat Release Rate,s
+1,real part of the dielectric constant,s
+1,Cp,C
+1,Square root of Electric Field,q
+1,real part of dielectric constant,s
+1,Normalized Position,s
+1,Phase Angle,s
+1,Loss Factor,s
+1,Conductivity,C
+1,effective permittivity of composites,s
+1,Number of MWNT along the fracture for ARNT/PC,um
+1,Fig_5_b_0.075_1Hz,Hz
+1,Fig_5_a_0.025_1Hz,Hz
+1,freq/Hz,Hz
+1,relative density,s
+1,Fig_8_b_0.0_real,g
+1,Damping factor,Da
+1,"Imaginary Dielectric constant epsilon""",s
+1,normalized frequency,q
+1,Dielectric Loss Factor,s
+1,Percent change in AC Breakdown Strength,Percent
+1,Dielectric constant,s
+1,Dissipation Factor,s
+1,Imaginary Susceptibility,s
+1,Dissipation factor,s
+1,fatigue crack growth rate,g
+1,Real Susceptibility,s
+1,Loss component,s
+1,volume content of the samples,vol
+0,"e""norm",
+0,Y,
+0,e',
+0,Probability,
+0,Temperature ï½©,
+0,Temperature,
+0,Tan d,
+0,real part of permittivity,
+0,É›Â´,
+0,Tan Delta,
+0,Real permittivity,
+0,"G""",
+0,Dielectric Permittivity,
+0,real permittivity,
+0,0.048442907,
+0,4.745758446,
+0,Real Permittivity,
+0,the real part of dielectric permittivity,
+0,Probability of Failure,
+0,Heat flow,
+0,,
+0,dielectric permittivity,
+0,Relative Permittivity,
+0,tanÎ´,
+0,Tan,
+0,Sample,
+0,"e""",
+0,"E""/E""max",
+0,G',
+0,e' ,
+0,Real Relative Permittivity,
+0,Real dielectric function,
+0,72.35636624,
+0,p/p0,
+0,Dielectric permittivity,
+0,reduced conductivity,
+0,0.056005402,
+0,Tan Î´,
+0,Permittivity,
+0,Real component of permittivity,
+0,f,
+0,Real Permitivity,
+0,T/T_alpha,
+0,Tan delta,
+0,Relative real permittivity,
+0,Real part of Permittivity,
+0,Heat Flow,
+0,Dielectric Real Permittivity,
+0,prob failure,

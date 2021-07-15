@@ -1,0 +1,67 @@
+﻿8.0,Gpa,*10^-9 Pa
+4.0,celsius,cel.
+0.0,celsius,celsius
+6.0,celsius,deg C
+7.0,celsius,Deg. Celcius
+6.0,celsius,degree
+7.0,celsius/min,*C/min
+0.0,1/cm,1/cm
+7.0,1/cm,cm^(-1)
+5.0,1/cm,cm^-1
+4.0,1/cm,cm-1
+5.0,1/sec,sec^-1
+0.0,A cm^(-2),A cm^(-2)
+0.0,A/cm^2,A/cm^2
+1.0,A/cm^2,A/cm2
+0.0,A/m^2,A/m^2
+0.0,A/mm^2,A/mm^2
+0.0,A^(-1),A^(-1)
+2.0,A^(-1),A^-1
+0.0,amps,amps
+0.0,bonds/nm2,bonds/nm2
+0.0,C/m^3,C/m^3
+0.0,Cal/g*C,Cal/g*C
+0.0,cal/g.s,cal/g.s
+0.0,ch/nm^2,ch/nm^2
+3.0,ch/nm^2,chain/nm^2
+0.0,cm^2/Vs,cm^2/Vs
+0.0,hours,hours
+3.0,Hz,Hertz
+2.0,J/gK,J/(g*K
+4.0,J/gK,j/(gk)
+0.0,J/gK,J/gK
+0.0,J/cm^3,J/cm^3
+1.0,J/cm^3,J/cm3
+0.0,J/m^3,J/m^3
+0.0,K^-1,K^-1
+0.0,kg/mol,kg/mol
+0.0,kV/cm,kV/cm
+0.0,kV/m,kV/m
+0.0,kV/mm,kV/mm
+0.0,log Hz,log Hz
+1.0,minutes,Minutes
+0.0,min^-1,min^-1
+0.0,MV/cm,MV/cm
+0.0,MV/m,MV/m
+0.0,mV/mm,mV/mm
+8.0,nm,nanometers
+1.0,ohm*cm,ohm cm
+2.0,ohm*cm,ohms-cm
+4.0,ohm*m,ohms - m
+2.0,ohm*m,ohms-m
+1.0,Pa*s,Pa s
+0.0,Pa*s,Pa*s
+1.0,Pa*s,Pa-s
+1.0,Pa*s,Pa.s
+3.0,Pa*s,Pa-sec
+2.0,rad/sec,rad/s
+0.0,rad/sec,rad/sec
+0.0,S cm^-1,S cm^-1
+4.0,S/m,S m^-1
+4.0,S/m,s.m-1
+0.0,s(cm),s(cm)
+0.0,S/cm,S/cm
+0.0,V/cm,V/cm
+0.0,v/mm,v/mm
+0.0,W/mK,W/mK
+0.0,(dimensionless),(dimensionless)
