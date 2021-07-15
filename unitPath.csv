@@ -1,4 +1,4 @@
-﻿Simplified,Unit,Path
+﻿ï»¿Simplified,Unit,Path
 (dimensionless),(dimensionless),characterization/rheometery
 hz,hz,properties/mechanical/tensile/elongationatbreak
 ohm*m,ohms-m,
@@ -161,7 +161,7 @@ hz,hz,properties/mechanical/shear/shearmodulus
 1/sec,1/s,
 pa*s,pa-s,
 1/sec,sec^-1,
-celsius,°c,
+celsius,Â°c,
 (dimensionless),(dimensionless),materials/filler/fillercomponent/particlesurfacetreatment/molecularweight
 1/cm,cm-1,
 (dimensionless),(dimensionless),properties/viscoelastic/dynamicproperties/dma_mode/frequencysweep/condition/temperature
