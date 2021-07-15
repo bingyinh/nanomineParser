@@ -1,7 +1,6 @@
 # simple dictionary matching function
 
 def termDict(raw, dictionary):
-    try:
+    if raw in dictionary:
         return dictionary[raw]
-    except:
-        pass
+    return None
