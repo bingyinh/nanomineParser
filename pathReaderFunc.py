@@ -17,7 +17,7 @@ def pathReader(path):
             csv_reader = csv.reader(csv_unit)
             for row in csv_reader:
                 if row[2] == path:
-                    pastUnits[row[1]] = row[0]
+                    pastTypes[row[1]] = row[0]
                         
         return [pastUnits, pastTypes]
     

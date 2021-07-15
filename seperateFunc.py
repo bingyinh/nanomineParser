@@ -15,7 +15,7 @@ def separate(header):
         
         testUnit = ""
         testType = ""
-        trigger = ["ratio", "factor", "normalized", "%"] 
+        trigger = ["ratio", "factor", "normalized", "%"] # remove "%"
         triggered = False
         for i in trigger:
             if i in head:
@@ -23,7 +23,7 @@ def separate(header):
                 testType = head
                 triggered = True
         if not triggered:
-            if "(" and ")" in head:
+            if "(" and ")" in head: # think about how to use inputs from xpath separator to help with the cases when there are multiple parenthesis
                 testUnit = head[head.find("(") + 1:head.find(")",-1)]
                 testUnit = testUnit.lower().replace(" ","")
                 testType = head[:head.find("(")]
@@ -34,12 +34,13 @@ def separate(header):
                 testUnit = head[head.find("-") + 1:]
                 testType = head[:head.find("-")]
         
-        try:
-            if testType[-1] == " ":
-                testType = testType[:-1]
-        except:
-            testType = testType
-                
+        # try:
+        #     if testType[-1] == " ":
+        #         testType = testType[:-1]
+        # except:
+        #     testType = testType
+        testType = testType.strip()
+
         rawUnit = testUnit
         rawType = testType
         
