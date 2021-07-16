@@ -112,6 +112,102 @@ class spectraHeaderParser(object):
                 'Loss Modulus',
                 "Log(loss factor e'')"
             },
+            'Tan Delta': {
+                'loss tangent',
+                'Bending Tan delta',
+                'Dielectric Loss Tangent',
+                'Dielctric Loss Factor',
+                'Dielectric loss',
+                'Tan d',
+                'Tan del',
+                'Damping Factor',
+                'Tan δ',
+                'Dissipation Factor',
+                'tangent delta',
+                'Tan delta',
+                'Log Tan delta',
+                'loss factor',
+                'Loss factor',
+                'Damping factor',
+                'Damping Coefficient',
+                'Loss Tangent',
+                'tan del',
+                'dielectric loss tangent',
+                'Permittivity',
+                'Effective dielectric constant',
+                'tan delta',
+                'Tan',
+                'dissipation factor',
+                'Tangent Delta',
+                'Tan Delta',
+                'loss tanget',
+                'tanδ',
+                'Loss tangent',
+                'Dissipation factor',
+                'Dielectric Loss',
+                'dielectric loss',
+                'dielectric loss, tangent',
+                'Dielectric Loss Factor',
+                'Effective dielectric loss'
+            },
+            'Normalized Storage Modulus': {
+                "E'/E'max"
+            },
+            'Normalized Loss Modulus': {
+                'E"/E"max'
+            },
+            'Normalized Tan Delta': {
+                'normalized tan delta'
+            },
+            'Shear Storage Modulus': {
+                'Shear Storage Modulus',
+                "Storage Modulus, G'",
+                'shear storage modulus',
+                "G'",
+                'Shear storage modulus G'
+            },
+            'Shear Loss Modulus': {
+                "Loss Modulus, G''",
+                'Shear Loss Modulus',
+                "G''",
+                'G"'
+            },
+            'Temperature': {
+                'Temperatur',
+                'Temperature',
+                'Temp',
+                'T',
+                'Tempeature',
+                'temperature'
+            },
+            'Frequency': {
+                'Fequency',
+                'f',
+                'Frequency',
+                'Frequecy',
+                'Log f',
+                'Angular velocity',
+                'freq/Hz',
+                'Oscillation frequency, ω',
+                'Angular Frequency',
+                'w',
+                'Frequenc',
+                'Freq',
+                'Angular frequency',
+                'freq',
+                'ang. frequency',
+                'frequency',
+                'Angular Velocity'
+            },
+            'Strain': {
+                'strain',
+                'strain rate',
+                'Critical strain',
+                'Hencky strain',
+                'Static Strain',
+                'Failure Strain',
+                'strain to failure'
+            },
             'Celsius': {
                 '*C',
                 '°c',
@@ -127,12 +223,56 @@ class spectraHeaderParser(object):
             'Kelvin': {
                 'K',
                 'kelvin'
+            },
+            'Hz': {
+                'Hertz',
+                'Hz'
+            },
+            'kHz': {
+                '1000 Hz',
+                '*10^3 Hz'
+            },
+            'MHz': {
+                '1000000 Hz'
+                '*10^6 Hz'
+            },
+            'GHz': {
+                '1000000000 Hz'
+                '*10^9 Hz'
+            },
+            'rad/s': {
+                'rad/sec',
+                'rad/second'
+            },
+            '%': {
+                'percent'
+            },
+            'Pa': {
+                'Pascal'
+            },
+            'kPa': {
+                '1000 Pa',
+                '1000 Pascal',
+                '*10^3 Pa'
+            },
+            'MPa': {
+                '1000000 Pa',
+                '1000000 Pascal',
+                '*10^6 Pa'
+            },
+            'GPa': {
+                '1000000000 Pa',
+                '1000000000 Pascal',
+                '*10^9 Pa'
             }
         }
         self.storageModulus = standardizer({'Storage Modulus': namePairs['Storage Modulus']})
         self.lossModulus = standardizer({'Loss Modulus': namePairs['Loss Modulus']})
+        self.tanDelta = standardizer({'Tan Delta': namePairs['Tan Delta']})
         self.temperatureUnit = standardizer({'Celcius': namePairs['Celsius'], 'Kelvin': namePairs['Kelvin']})
-
+        self.frequencyUnit = standardizer({'Hz': namePairs['Hz'], 'kHz': namePairs['kHz'], 'MHz': namePairs['MHz'], 'GHz': namePairs['GHz'], 'rad/s': namePairs['rad/s']})
+        self.strainUnit = standardizer({'%': namePairs['%']})
+        self.modulusUnit = standardizer({'Pa': namePairs['Pa'], 'kPa': namePairs['kPa'], 'MPa': namePairs['MPa'], 'GPa': namePairs['GPa']})
     # parse function
     def parse(self, xpath, xheader, yheader):
         '''
