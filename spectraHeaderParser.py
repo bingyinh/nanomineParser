@@ -13,6 +13,11 @@ class spectraHeaderParser(object):
 
     # header separator function (TODO)
     def separator(self, xheader, yheader):
+        # replace these with your separator fn!!!!
+        xName = xheader[:xheader.find('(')]
+        yName = yheader[:yheader.find('(')]
+        xUnit = xheader[xheader.find('(')+1:xheader.find(')')]
+        yUnit = yheader[yheader.find('(')+1:yheader.find(')')]
         return (xName, xUnit, yName, yUnit)
 
     # xpath reader function
@@ -264,15 +269,27 @@ class spectraHeaderParser(object):
                 '1000000000 Pa',
                 '1000000000 Pascal',
                 '*10^9 Pa'
+            },
+            '(dimensionless)': {
+                'dimensionless'
             }
         }
         self.storageModulus = standardizer({'Storage Modulus': namePairs['Storage Modulus']})
         self.lossModulus = standardizer({'Loss Modulus': namePairs['Loss Modulus']})
         self.tanDelta = standardizer({'Tan Delta': namePairs['Tan Delta']})
-        self.temperatureUnit = standardizer({'Celcius': namePairs['Celsius'], 'Kelvin': namePairs['Kelvin']})
+        self.normalizedStorageModulus = standardizer({'Normalized Storage Modulus': namePairs['Normalized Storage Modulus']})
+        self.normalizedLossModulus = standardizer({'Normalized Loss Modulus': namePairs['Normalized Loss Modulus']})
+        self.normalizedTanDelta = standardizer({'Normalized Tan Delta': namePairs['Normalized Tan Delta']})
+        self.shearStorageModulus = standardizer({'Shear Storage Modulus': namePairs['Shear Storage Modulus']})
+        self.shearLossModulus = standardizer({'Shear Loss Modulus': namePairs['Shear Loss Modulus']})
+        self.temperature = standardizer({'Temperature': namePairs['Temperature']})
+        self.frequency = standardizer({'Frequency': namePairs['Frequency']})
+        self.strain = standardizer({'Strain': namePairs['Strain']})
+        self.temperatureUnit = standardizer({'Celsius': namePairs['Celsius'], 'Kelvin': namePairs['Kelvin']})
         self.frequencyUnit = standardizer({'Hz': namePairs['Hz'], 'kHz': namePairs['kHz'], 'MHz': namePairs['MHz'], 'GHz': namePairs['GHz'], 'rad/s': namePairs['rad/s']})
         self.strainUnit = standardizer({'%': namePairs['%']})
         self.modulusUnit = standardizer({'Pa': namePairs['Pa'], 'kPa': namePairs['kPa'], 'MPa': namePairs['MPa'], 'GPa': namePairs['GPa']})
+        self.dimensionless = standardizer({'(dimensionless)': namePairs['(dimensionless)']})
     # parse function
     def parse(self, xpath, xheader, yheader):
         '''
@@ -324,3 +341,31 @@ class spectraHeaderParser(object):
         output['yUnit'] = stdYUnit
         # return
         return output
+
+if __name__ == '__main__':
+    shp = spectraHeaderParser()
+    # test case 1
+    xpath = 'PROPERTIES/Viscoelastic/DynamicProperties/DynamicPropertyProfile'
+    xheader = 'temperature (deg C)'
+    yheader = 'storage modulus (Mpa)'
+    answer = {
+        'xName':'Temperature',
+        'xUnit':'Celsius',
+        'yName':'Storage Modulus',
+        'yUnit':'MPa'
+    }
+    print(shp.parse(xpath, xheader, yheader))
+    assert shp.parse(xpath, xheader, yheader) == answer, 'Fail test case 1'
+    # test case 2
+    xpath = 'PROPERTIES/Viscoelastic/DynamicProperties/DynamicPropertyProfile'
+    xheader = 'f (hz)'
+    yheader = 'tan d (dimensionless)'
+    answer = {
+        'xName':'Frequency',
+        'xUnit':'Hz',
+        'yName':'Tan Delta',
+        'yUnit':'(dimensionless)'
+    }
+    print(shp.parse(xpath, xheader, yheader))
+    assert shp.parse(xpath, xheader, yheader) == answer, 'Fail test case 2'
+    print("All tests passed")
