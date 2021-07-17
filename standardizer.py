@@ -69,8 +69,10 @@ class standardizer(object):
         currentMatch = None
         currentLowestDistance = 999
         token1 = expression
-        for stdName in namePairs: 
-            for token2 in namePairs[stdName]:
+        for stdName in namePairs:
+            token2Pool = {stdName}
+            token2Pool.update(namePairs[stdName])
+            for token2 in token2Pool:
                 if len(token2) > 3: # magic number 3, make it a variable
                     distances = numpy.zeros((len(token1) + 1, len(token2) + 1))
                     for t1 in range(len(token1) + 1):
@@ -119,4 +121,6 @@ if __name__ == '__main__':
     assert std.evaluate('more typo') == 'Standard Name', 'Fail test case 6'
     # test case 7, no match found
     assert std.evaluate('nonsense') is None, 'Fail test case 7'
+    # test case 8, slightly modified standard name
+    assert std.evaluate('Stanbard Name') == 'Standard Name', 'Fail test case 8'
     print("All tests passed")
