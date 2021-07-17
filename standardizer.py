@@ -33,78 +33,9 @@ class standardizer(object):
         #***
 
         # call algorithm 2 (e.g. levenshtein distance with a threshold)
-        distanceLow = []
-        token1 = expression
-        for stdName in self.namePairs: 
-            for token2 in self.namePairs[stdName]:
-                if len(token2) > 3:
-            #***
-                    distances = numpy.zeros((len(token1) + 1, len(token2) + 1))
-                
-                    for t1 in range(len(token1) + 1):
-                        distances[t1][0] = t1
-                
-                    for t2 in range(len(token2) + 1):
-                        distances[0][t2] = t2
-                        
-                    a = 0
-                    b = 0
-                    c = 0
-                    
-                    for t1 in range(1, len(token1) + 1):
-                        for t2 in range(1, len(token2) + 1):
-                            if (token1[t1-1] == token2[t2-1]):
-                                distances[t1][t2] = distances[t1 - 1][t2 - 1]
-                            else:
-                                a = distances[t1][t2 - 1]
-                                b = distances[t1 - 1][t2]
-                                c = distances[t1 - 1][t2 - 1]
-                                
-                                if (a <= b and a <= c):
-                                    distances[t1][t2] = a + 1
-                                elif (b <= a and b <= c):
-                                    distances[t1][t2] = b + 1
-                                else:
-                                    distances[t1][t2] = c + 1
-                
-                    if distances[len(token1)][len(token2)] < 1:
-                        distanceLow.append(token2)
-        #***
-       
-        for token2 in self.namePairs:
-            if len(token2) > 3:
-        #***
-                distances = numpy.zeros((len(token1) + 1, len(token2) + 1))
-            
-                for t1 in range(len(token1) + 1):
-                    distances[t1][0] = t1
-            
-                for t2 in range(len(token2) + 1):
-                    distances[0][t2] = t2
-                    
-                a = 0
-                b = 0
-                c = 0
-                
-                for t1 in range(1, len(token1) + 1):
-                    for t2 in range(1, len(token2) + 1):
-                        if (token1[t1-1] == token2[t2-1]):
-                            distances[t1][t2] = distances[t1 - 1][t2 - 1]
-                        else:
-                            a = distances[t1][t2 - 1]
-                            b = distances[t1 - 1][t2]
-                            c = distances[t1 - 1][t2 - 1]
-                            
-                            if (a <= b and a <= c):
-                                distances[t1][t2] = a + 1
-                            elif (b <= a and b <= c):
-                                distances[t1][t2] = b + 1
-                            else:
-                                distances[t1][t2] = c + 1
-            
-                if distances[len(token1)][len(token2)] < 2:
-                    distanceLow.append(token2)
-        #*** 
+        levenshteinMatch = self.levenshtein(expression, self.namePairs, thresh=3)
+        if levenshteinMatch is not None:
+            return levenshteinMatch
         
         # call algorithm 3 (e.g. tokenization)
 
@@ -114,7 +45,78 @@ class standardizer(object):
             # Match: if match, return key
             # Distance: stated above
             # Token: if tokens are the same and distance is < 3 or something like that
-        if len(distanceLow) == 1:
-            return self.namePairs[distanceLow[0]]
+
         # otherwise, return None
         return None
+
+    # evaluation by levenshtein distance
+    def levenshtein(self, expression, namePairs, thresh=2):
+        '''
+        Fill this in
+
+        :param expression: could be raw xName, xUnit, yName, yUnit
+        :type expression: str
+
+        :param namePairs: 
+        :type namePairs: 
+
+        :param thresh:
+        :type thresh:
+
+        :returns: 
+        :rtype: 
+        '''
+        currentMatch = None
+        currentLowestDistance = 999
+        token1 = expression
+        for stdName in namePairs: 
+            for token2 in namePairs[stdName]:
+                if len(token2) > 3: # magic number 3, make it a variable
+                    distances = numpy.zeros((len(token1) + 1, len(token2) + 1))
+                    for t1 in range(len(token1) + 1):
+                        distances[t1][0] = t1
+                    for t2 in range(len(token2) + 1):
+                        distances[0][t2] = t2
+                    a = 0
+                    b = 0
+                    c = 0
+                    for t1 in range(1, len(token1) + 1):
+                        for t2 in range(1, len(token2) + 1):
+                            if (token1[t1-1] == token2[t2-1]):
+                                distances[t1][t2] = distances[t1 - 1][t2 - 1]
+                            else:
+                                a = distances[t1][t2 - 1]
+                                b = distances[t1 - 1][t2]
+                                c = distances[t1 - 1][t2 - 1]
+                                if (a <= b and a <= c):
+                                    distances[t1][t2] = a + 1
+                                elif (b <= a and b <= c):
+                                    distances[t1][t2] = b + 1
+                                else:
+                                    distances[t1][t2] = c + 1
+                    currentDistance = distances[len(token1)][len(token2)]
+                    if currentDistance < currentLowestDistance:
+                        currentMatch = stdName
+                        currentLowestDistance = currentDistance
+        if currentLowestDistance < thresh:
+            return currentMatch
+        return None
+
+
+if __name__ == '__main__':
+    std = standardizer({'Standard Name': {'UPPERcaselowerCASE', 'white space', 'Typ0', 'more tip0'}})
+    # test case 1, standard name
+    assert std.evaluate('Standard Name') == 'Standard Name', 'Fail test case 1'
+    # test case 2, upper/lower case
+    assert std.evaluate('uPpErCaseLowercase') == 'Standard Name', 'Fail test case 2'
+    # test case 3, white space
+    assert std.evaluate('whitespace') == 'Standard Name', 'Fail test case 3'
+    # test case 4, white space
+    assert std.evaluate('  white  space  ') == 'Standard Name', 'Fail test case 4'
+    # test case 5, typo (levenstein distance = 1)
+    assert std.evaluate('typo') == 'Standard Name', 'Fail test case 5'
+    # test case 6, typo (levenstein distance = 2)
+    assert std.evaluate('more typo') == 'Standard Name', 'Fail test case 6'
+    # test case 7, no match found
+    assert std.evaluate('nonsense') is None, 'Fail test case 7'
+    print("All tests passed")
