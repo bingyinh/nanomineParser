@@ -4,7 +4,6 @@ class standardizer(object):
     def __init__(self, namePairs):
         '''
         Initialize and set up name pairs of non-standard and standard expressions
-
         :param namePairs: a dictionary with standard expressions as the key and a set of non-standard expressions as the value. Example: {'Storage Modulus': {"E'", "Storage Modulus", "Log-storage modulus", "Storage Modulus, E"}} or {'Hz': {'Hertz', 'Hz'}, 'kHz': {'kHz'}, 'GHz': {'GHz'}, 'rad/second': {'rad/s', 'rad/sec'}}
         :type namePairs: dict
         '''
@@ -13,10 +12,8 @@ class standardizer(object):
     def evaluate(self, expression):
         '''
         Calls mapping algorithms to evaluate if a match in the standard expressions could be found for the given expression
-
         :param expression: could be raw xName, xUnit, yName, yUnit
         :type expression: str
-
         :returns: standard expression (or None if no match could be found)
         :rtype: str
         '''
@@ -28,9 +25,6 @@ class standardizer(object):
             for rawName in self.namePairs[stdName]:
                 if raw == rawName.lower().replace(" ",""):
                     return stdName
-            
-
-        #***
 
         # call algorithm 2 (e.g. levenshtein distance with a threshold)
         levenshteinMatch = self.levenshtein(expression, self.namePairs, thresh=3)
@@ -38,13 +32,20 @@ class standardizer(object):
             return levenshteinMatch
         
         # call algorithm 3 (e.g. tokenization)
-
+        raw = expression.lower()
+        for stdName in self.namePairs: 
+            if self.token(raw) == self.token(stdName.lower()):
+                return stdName
+            for rawName in self.namePairs[stdName]:
+                if self.token(raw) == self.token(rawName.lower()):
+                    return stdName
+        
         # etc.
         
         # summarize the results from the evaluations of all algorithms, think about some rules that could conclude whether a match could be found, return the match
             # Match: if match, return key
-            # Distance: stated above
-            # Token: if tokens are the same and distance is < 3 or something like that
+            # Distance: return lowest, or thresh < 2
+            # Token: if tokens are the same, return key
 
         # otherwise, return None
         return None
@@ -53,18 +54,14 @@ class standardizer(object):
     def levenshtein(self, expression, namePairs, thresh=2):
         '''
         Fill this in
-
         :param expression: could be raw xName, xUnit, yName, yUnit
         :type expression: str
-
-        :param namePairs: 
-        :type namePairs: 
-
-        :param thresh:
-        :type thresh:
-
-        :returns: 
-        :rtype: 
+        :param namePairs: list of dictionaries used for this expression
+        :type namePairs: list
+        :param thresh: maximum distance to be considered for a match
+        :type thresh: int
+        :returns: standardized expression for 
+        :rtype: str
         '''
         currentMatch = None
         currentLowestDistance = 999
@@ -103,7 +100,20 @@ class standardizer(object):
         if currentLowestDistance < thresh:
             return currentMatch
         return None
-
+    
+    def token(self, unit):
+        tokens = []
+        newToken = ""
+        char = unit
+        for i in range(len(unit)):
+            if char[0].isalpha() or char[0].isdigit():
+                newToken = newToken + char[0]
+            else:
+                tokens.append(newToken)
+                newToken = ""
+            char = char[1:]
+        tokens.append(newToken)
+        return tokens
 
 if __name__ == '__main__':
     std = standardizer({'Standard Name': {'UPPERcaselowerCASE', 'white space', 'Typ0', 'more tip0'}})
