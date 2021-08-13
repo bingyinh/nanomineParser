@@ -1,8 +1,18 @@
-Matching files (input csv -> python code -> output csv):
-Note: I don't think I spell separate (I wrote seperate) correctly once in all of my code so keep that in mind...
+# nanomineParser
+This python module takes in axis labels of scientific plots and returns splited and standardized parameter names/units as part of the NanoMine curation process.
 
-unitCSVMaster.csv + simplifyUnits.csv -> headerSplit.py -> parserData.csv
-comparison.csv -> seperateFunc.py -> seperatorTest.csv
-typePath.csv + unitPath.csv -> pathReaderFunc.py -> (currently does not work: encoding issue)
-simplifyUnits.csv -> distanceFunc.py -> distanceTest1.csv + distanceTest2.csv
-(None) -> matchFunc.py -> (None)
+### 1. System preparations
+
+Required packages:
+
+- lxml
+  - http://lxml.de/
+  - xml etree handling
+
+Open the command or terminal and run
+```
+pip install -r requirements.txt
+```
+
+### 2. How to run
+
