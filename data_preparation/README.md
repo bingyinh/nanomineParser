@@ -17,6 +17,15 @@ This folder contains all codes and files needed for summarizing the relationship
 - **rawDataUnique.xlsx**
   - The after-human-inspection version of rawDataUnique.csv. This file will be used in the further processing steps.
 
+- **additionalDataUnique.xlsx**
+  - The spreadsheet share the same format with rawDataUnique.xlsx. This file acts as an additional source of name pair informations. This file will be used in the further processing steps.
+
+- rawToJSON.py
+  - The script that reads rawDataUnique.xlsx and additionalDataUnique.xlsx to generate the json file to be loaded in the `spectraHeaderParser` object.
+
+- **nanomineParserConfig.json**
+  - This file will be loaded into the `spectraHeaderParser` object.
+
 - xName/xUnit/yName/yUnit.csv
   - Tables of specific fields. For reference purposes only.
 
@@ -26,5 +35,10 @@ This folder contains all codes and files needed for summarizing the relationship
 3. Update `xmlDir` in prepRawData.py with the directory. Update `ignore` as needed.
 4. Run prepRawData.py.
 5. Inspect the newly generated rawDataUnique.csv and polish it.
+  - fill in the blank cells where the split function fails to split x/yRaw_header into x/yName and x/yUnit
+  - correct the wrongly splitted x/yName and x/yUnit
+  - use the original rawDataUnique.xlsx as a reference, fill in *stdXUnit*, *xUnitType*, *stdYUnit*, *yUnitType*
+  - label rows where xpath is incorrect or other curation errors with a 'Y' in the *ignore* column
 6. Append the polished rows of data to rawDataUnique.xlsx.
-7. to be continued
+7. Make adjustments and additions to additionalDataUnique.xlsx as needed.
+8. Run rawToJSON.py to generate new nanomineParserConfig.json.

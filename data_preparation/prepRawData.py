@@ -142,7 +142,11 @@ for xml in xmls:
                             'yName': yName,
                             'yUnit': yUnit,
                             'stdXName': stdXName,
-                            'stdYName': stdYName
+                            'stdYName': stdYName,
+                            'stdXUnit': '',
+                            'stdYUnit': '',
+                            'xUnitType': stdXName,
+                            'yUnitType': stdYName,
                             })
     except Exception as e:
         logging.error(xml, exc_info=e)
@@ -151,7 +155,9 @@ for xml in xmls:
 with open('rawData.csv','w+',encoding='utf-8-sig',newline='') as f:
     writer = csv.DictWriter(f, fieldnames=['file','xPath','xRaw_header',
                                            'yRaw_header','xName','stdXName',
-                                           'xUnit','yName','stdYName','yUnit'])
+                                           'xUnit','stdXUnit','xUnitType',
+                                           'yName','stdYName','yUnit',
+                                           'stdYUnit','yUnitType'])
     writer.writeheader()
     for row in xmlData:
         writer.writerow(row)
@@ -216,8 +222,10 @@ for row in xmlData:
 
 with open('rawDataUnique.csv','w+',encoding='utf-8-sig',newline='') as f:
     writer = csv.DictWriter(f, fieldnames=['file','xPath','occurrence',
-                                           'xRaw_header','xName','stdXName','xUnit',
-                                           'yRaw_header','yName','stdYName','yUnit'])
+                                           'xRaw_header','xName','stdXName',
+                                           'xUnit','stdXUnit','xUnitType',
+                                           'yRaw_header','yName','stdYName',
+                                           'yUnit','stdYUnit','yUnitType'])
     writer.writeheader()
     for row in xmlDataUnique:
         row['occurrence'] = xmlDataPool[(row['xPath'],row['xRaw_header'],row['yRaw_header'],row['xName'],row['stdXName'],row['xUnit'],row['yName'],row['stdYName'],row['yUnit'])]
