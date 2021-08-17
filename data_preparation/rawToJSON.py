@@ -9,8 +9,10 @@ stdXNameXName = {}
 stdYNameYName = {}
 stdXUnitXUnit = {}
 stdYUnitYUnit = {}
+stdUnitUnit = {} # a merged version of stdXUnitXUnit and stdYUnitYUnit
 xUnitTypeStdXUnit = {}
 yUnitTypeStdYUnit = {}
+unitTypeStdUnit = {} # a merged version of xUnitTypeStdXUnit, yUnitTypeStdYUnit
 stdXNameXUnitType = {}
 stdYNameYUnitType = {}
 xRawXNameXUnit = {} # only for spliting fn training purpose
@@ -44,11 +46,20 @@ for row in df.iterrows():
         if rowData['stdXUnit'] not in stdXUnitXUnit:
             stdXUnitXUnit[rowData['stdXUnit']] = set()
         stdXUnitXUnit[rowData['stdXUnit']].add(rowData['xUnit'])
-        # build xUnitType-stdXUnit
+        # also add to stdUnit-unit
+        if rowData['stdXUnit'] not in stdUnitUnit:
+            stdUnitUnit[rowData['stdXUnit']] = set()
+        stdUnitUnit[rowData['stdXUnit']].add(rowData['xUnit'])
+        # if xUnitType exists
         if rowData['xUnitType']:
+            # build xUnitType-stdXUnit
             if rowData['xUnitType'] not in xUnitTypeStdXUnit:
                 xUnitTypeStdXUnit[rowData['xUnitType']] = set()
             xUnitTypeStdXUnit[rowData['xUnitType']].add(rowData['stdXUnit'])
+            # also add to unitType-stdUnit
+            if rowData['xUnitType'] not in unitTypeStdUnit:
+                unitTypeStdUnit[rowData['xUnitType']] = set()
+            unitTypeStdUnit[rowData['xUnitType']].add(rowData['stdXUnit'])
     # if both stdXName and xUnitType exist
     if rowData['stdXName'] and rowData['xUnitType']:
         # build stdXName-xUnitType
@@ -79,11 +90,20 @@ for row in df.iterrows():
         if rowData['stdYUnit'] not in stdYUnitYUnit:
             stdYUnitYUnit[rowData['stdYUnit']] = set()
         stdYUnitYUnit[rowData['stdYUnit']].add(rowData['yUnit'])
-        # build yUnitType-stdYUnit
+        # also add to stdUnit-unit
+        if rowData['stdYUnit'] not in stdUnitUnit:
+            stdUnitUnit[rowData['stdYUnit']] = set()
+        stdUnitUnit[rowData['stdYUnit']].add(rowData['yUnit'])
+        # if yUnitType exists
         if rowData['yUnitType']:
+            # build yUnitType-stdYUnit
             if rowData['yUnitType'] not in yUnitTypeStdYUnit:
                 yUnitTypeStdYUnit[rowData['yUnitType']] = set()
             yUnitTypeStdYUnit[rowData['yUnitType']].add(rowData['stdYUnit'])
+            # also add to unitType-stdUnit
+            if rowData['yUnitType'] not in unitTypeStdUnit:
+                unitTypeStdUnit[rowData['yUnitType']] = set()
+            unitTypeStdUnit[rowData['yUnitType']].add(rowData['stdYUnit'])
     # if both stdYName and yUnitType eyist
     if rowData['stdYName'] and rowData['yUnitType']:
         # build stdYName-yUnitType
@@ -97,8 +117,10 @@ fullDict = {'stdXName-xName':stdXNameXName,
             'stdYName-yName':stdYNameYName,
             'stdXUnit-xUnit':stdXUnitXUnit,
             'stdYUnit-yUnit':stdYUnitYUnit,
+            'stdUnit-unit':stdUnitUnit,
             'xUnitType-stdXUnit':xUnitTypeStdXUnit,
             'yUnitType-stdYUnit':yUnitTypeStdYUnit,
+            'unitType-stdUnit':unitTypeStdUnit,
             'stdXName-xUnitType':stdXNameXUnitType,
             'stdYName-yUnitType':stdYNameYUnitType,
             'xRaw-xName-xUnit':xRawXNameXUnit,
