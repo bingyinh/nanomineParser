@@ -2,11 +2,11 @@ import pandas as pd
 import json
 
 # read the polished Excel file of raw data
-df_raw = pd.read_excel('rawDataUnique.xlsx',index_col=None,
-    keep_default_na=False)
+df_raw = pd.read_excel('rawDataUnique.xlsx', index_col=None,
+    keep_default_na=False, dtype=str)
 # read the Excel file of additional data
-df_add = pd.read_excel('additionalDataUnique.xlsx',index_col=None,
-    keep_default_na=False)
+df_add = pd.read_excel('additionalDataUnique.xlsx', index_col=None,
+    keep_default_na=False, dtype=str)
 
 # initialize dicts
 stdXNameXName = {}
