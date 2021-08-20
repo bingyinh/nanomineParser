@@ -183,31 +183,3 @@ class spectraHeaderParser(object):
         output['yUnit'] = stdYUnit
         # return
         return output
-
-if __name__ == '__main__':
-    shp = spectraHeaderParser()
-    # test case 1
-    xpath = 'PROPERTIES/Viscoelastic/DynamicProperties/DynamicPropertyProfile/data'
-    xheader = 'temperature (deg C)'
-    yheader = 'storage modulus (Mpa)'
-    answer = {
-        'xName':'Temperature',
-        'xUnit':'Celsius',
-        'yName':'Storage Modulus',
-        'yUnit':'MPa'
-    }
-    print(shp.parse(xpath, xheader, yheader))
-    assert shp.parse(xpath, xheader, yheader) == answer, 'Fail test case 1'
-    # test case 2
-    xpath = 'PROPERTIES/Viscoelastic/DynamicProperties/DynamicPropertyProfile'
-    xheader = 'f (hz)'
-    yheader = 'tan d (dimensionless)'
-    answer = {
-        'xName':'Frequency',
-        'xUnit':'Hz',
-        'yName':'Tan Delta',
-        'yUnit':'a.u.'
-    }
-    print(shp.parse(xpath, xheader, yheader))
-    assert shp.parse(xpath, xheader, yheader) == answer, 'Fail test case 2'
-    print("All tests passed")
