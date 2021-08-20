@@ -11,6 +11,7 @@ df_add = pd.read_excel('additionalDataUnique.xlsx',index_col=None,
 # initialize dicts
 stdXNameXName = {}
 stdYNameYName = {}
+stdNameName = {} # a merged version of stdXNameXName and stdYNameYName
 stdXUnitXUnit = {}
 stdYUnitYUnit = {}
 stdUnitUnit = {} # a merged version of stdXUnitXUnit and stdYUnitYUnit
@@ -19,6 +20,7 @@ yUnitTypeStdYUnit = {}
 unitTypeStdUnit = {} # a merged version of xUnitTypeStdXUnit, yUnitTypeStdYUnit
 stdXNameXUnitType = {}
 stdYNameYUnitType = {}
+stdNameUnitType = {} # a merged version ofstdXNameXUnitType, stdYNameYUnitType
 xRawXNameXUnit = {} # only for spliting fn training purpose
 yRawYNameYUnit = {} # only for spliting fn training purpose
 xPathStdXName = {}
@@ -34,6 +36,10 @@ for df in [df_raw, df_add]:
                 if rowData['stdXName'] not in stdXNameXName:
                     stdXNameXName[rowData['stdXName']] = set()
                 stdXNameXName[rowData['stdXName']].add(rowData['xName'])
+                # build stdName-Name
+                if rowData['stdXName'] not in stdNameName:
+                    stdNameName[rowData['stdXName']] = set()
+                stdNameName[rowData['stdXName']].add(rowData['xName'])
                 # build xRaw_header-(xName,xUnit)
                 if rowData['xRaw_header'] not in xRawXNameXUnit:
                     xRawXNameXUnit[rowData['xRaw_header']] = set()
@@ -71,6 +77,10 @@ for df in [df_raw, df_add]:
             if rowData['stdXName'] not in stdXNameXUnitType:
                 stdXNameXUnitType[rowData['stdXName']] = set()
             stdXNameXUnitType[rowData['stdXName']].add(rowData['xUnitType'])
+            # build stdName-UnitType
+            if rowData['stdXName'] not in stdNameUnitType:
+                stdNameUnitType[rowData['stdXName']] = set()
+            stdNameUnitType[rowData['stdXName']].add(rowData['xUnitType'])
         # if stdYName eyists
         if rowData['stdYName']:
             if rowData['yName']:
@@ -78,6 +88,10 @@ for df in [df_raw, df_add]:
                 if rowData['stdYName'] not in stdYNameYName:
                     stdYNameYName[rowData['stdYName']] = set()
                 stdYNameYName[rowData['stdYName']].add(rowData['yName'])
+                # build stdName-Name
+                if rowData['stdYName'] not in stdNameName:
+                    stdNameName[rowData['stdYName']] = set()
+                stdNameName[rowData['stdYName']].add(rowData['yName'])
                 # build yRaw_header-(yName,yUnit)
                 if rowData['yRaw_header'] not in yRawYNameYUnit:
                     yRawYNameYUnit[rowData['yRaw_header']] = set()
@@ -115,11 +129,15 @@ for df in [df_raw, df_add]:
             if rowData['stdYName'] not in stdYNameYUnitType:
                 stdYNameYUnitType[rowData['stdYName']] = set()
             stdYNameYUnitType[rowData['stdYName']].add(rowData['yUnitType'])
-
+            # build stdName-UnitType
+            if rowData['stdYName'] not in stdNameUnitType:
+                stdNameUnitType[rowData['stdYName']] = set()
+            stdNameUnitType[rowData['stdYName']].add(rowData['yUnitType'])
 
 # dump all these dict into a json file
 fullDict = {'stdXName-xName':stdXNameXName,
             'stdYName-yName':stdYNameYName,
+            'stdName-name':stdNameName,
             'stdXUnit-xUnit':stdXUnitXUnit,
             'stdYUnit-yUnit':stdYUnitYUnit,
             'stdUnit-unit':stdUnitUnit,
@@ -128,6 +146,7 @@ fullDict = {'stdXName-xName':stdXNameXName,
             'unitType-stdUnit':unitTypeStdUnit,
             'stdXName-xUnitType':stdXNameXUnitType,
             'stdYName-yUnitType':stdYNameYUnitType,
+            'stdName-unitType':stdNameUnitType,
             'xRaw-xName-xUnit':xRawXNameXUnit,
             'yRaw-yName-yUnit':yRawYNameYUnit,
             'xPath-stdXName':xPathStdXName,
