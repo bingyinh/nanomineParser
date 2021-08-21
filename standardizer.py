@@ -1,41 +1,75 @@
 import numpy
+import difflib
+
 # A parent standardizer object
 class standardizer(object):
-    def __init__(self, namePairs):
+    def __init__(self, namePairs, dlCutoff=0.6):
         '''
         Initialize and set up name pairs of non-standard and standard expressions
 
         :param namePairs: a dictionary with standard expressions as the key and a set of non-standard expressions as the value. Example: {'Storage Modulus': {"E'", "Storage Modulus", "Log-storage modulus", "Storage Modulus, E"}} or {'Hz': {'Hertz', 'Hz'}, 'kHz': {'kHz'}, 'GHz': {'GHz'}, 'rad/second': {'rad/s', 'rad/sec'}}
         :type namePairs: dict
+
+        :param dlCutoff: cutoff value for difflib.get_close_matches()
+        :type namePairs: float
         '''
         self.namePairs = namePairs
+        self.dlCutoff = dlCutoff # optimize it (TODO)
 
-    def evaluate(self, expression):
+    def evaluate(self, expression, keySet=None):
         '''
-        Calls mapping algorithms to evaluate if a match in the standard expressions could be found for the given expression
+        Calls mapping algorithms to evaluate if a match in the standard
+        expressions could be found for the given expression
 
         :param expression: could be raw xName, xUnit, yName, yUnit
         :type expression: str
 
-        :returns: standard expression (or None if no match could be found)
-        :rtype: str
+        :param keySet: list of keys in namePairs to perform evaluation on,
+                       default to use the full list of keys
+        :type expression: list(str)
+
+        :returns: a tuple of standard expression (or None if no match could be
+                  found) and score of confidence
+        :rtype: tuple(str, float)
         '''
-        # call algorithm 1 (e.g. matchFunc, you might want to ignore cases)
+        # by default use the full set of keys in namePairs
+        if keySet is None:
+            keySet = self.namePairs.keys()
+        # init score
+        score = 1.0
+        # call algorithm 1
         raw = expression.lower().replace(" ","")
-        for stdName in self.namePairs: 
+        for stdName in keySet:
             if raw == stdName.lower().replace(" ",""):
-                return stdName
+                return (stdName, score)
             for rawName in self.namePairs[stdName]:
                 if raw == rawName.lower().replace(" ",""):
-                    return stdName
-            
+                    score = 0.95
+                    return (stdName, score)
 
-        #***
+        # use difflib here and ratio() as scoring function
+        # Ratcliff-Obershelp
+        currentDLHighScore = -1
+        currentDLMatch = None
+        for stdName in keySet:
+            # call get_close_matches
+            result = difflib.get_close_matches(expression,
+                self.namePairs[stdName],n=1,cutoff=self.dlCutoff)
+            # check the score if result is not empty
+            if len(result) > 0:
+                currentDLScore = difflib.SequenceMatcher(None, expression,
+                    result[0]).ratio()
+                if currentDLScore > currentDLHighScore:
+                    currentDLHighScore = currentDLScore
+                    currentDLMatch = stdName
+        # return if a match is found
+        if currentDLMatch is not None:
+            return (currentDLMatch, currentDLHighScore)
 
         # call algorithm 2 (e.g. levenshtein distance with a threshold)
-        levenshteinMatch = self.levenshtein(expression, self.namePairs, thresh=3)
+        levenshteinMatch, levenshteinDist = self.levenshtein(expression, self.namePairs, thresh=2)
         if levenshteinMatch is not None:
-            return levenshteinMatch
+            return (levenshteinMatch, 1-levenshteinDist/len(expression))
         
         # call algorithm 3 (e.g. tokenization)
 
@@ -44,10 +78,10 @@ class standardizer(object):
         # summarize the results from the evaluations of all algorithms, think about some rules that could conclude whether a match could be found, return the match
             # Match: if match, return key
             # Distance: stated above
-            # Token: if tokens are the same and distance is < 3 or something like that
+            # Token: if tokens are the same and distance is <= 2 or something like that
 
-        # otherwise, return None
-        return None
+        # otherwise, return (None, -1)
+        return (None, -1)
 
     # evaluation by levenshtein distance
     def levenshtein(self, expression, namePairs, thresh=2):
@@ -100,10 +134,9 @@ class standardizer(object):
                     if currentDistance < currentLowestDistance:
                         currentMatch = stdName
                         currentLowestDistance = currentDistance
-        if currentLowestDistance < thresh:
-            return currentMatch
-        return None
-
+        if currentLowestDistance <= thresh:
+            return (currentMatch, currentLowestDistance)
+        return (None,-1)
 
 if __name__ == '__main__':
     std = standardizer({'Standard Name': {'UPPERcaselowerCASE', 'white space', 'Typ0', 'more tip0'}})
