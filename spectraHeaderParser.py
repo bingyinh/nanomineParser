@@ -187,26 +187,45 @@ class spectraHeaderParser(object):
         }
         # read xpath to determine subclasses
         subclassPools = self.xpathReader(xpath)
-        # for cases where multiple paired subclasses, need something to determine which one to use, for now we just assume only the correct subclass will return a string while other subclasses will return None (TODO)
+        # For cases where multiple paired subclasses, use the one with the
+        # highest score
         # standardize xName
         stdXName = None
+        stdXNameScore = -1
         for subclass in subclassPools['xName']:
-            stdXName = stdXName or subclass.evaluate(xName)
+            result, score = subclass.evaluate(xName)
+            if score > stdXNameScore:
+                stdXName = result
+                stdXNameScore = score
         output['xName'] = stdXName
         # standardize xUnit
+        # (TODO) use stdX/YName to aid standardizing x/yUnit
         stdXUnit = None
+        stdXUnitScore = -1
         for subclass in subclassPools['xUnit']:
-            stdXUnit = stdXUnit or subclass.evaluate(xUnit)
+            result, score = subclass.evaluate(xUnit)
+            if score > stdXUnitScore:
+                stdXUnit = result
+                stdXUnitScore = score
         output['xUnit'] = stdXUnit
         # standardize yName
         stdYName = None
+        stdYNameScore = -1
         for subclass in subclassPools['yName']:
-            stdYName = stdYName or subclass.evaluate(yName)
+            result, score = subclass.evaluate(yName)
+            if score > stdYNameScore:
+                stdYName = result
+                stdYNameScore = score
         output['yName'] = stdYName
         # standardize yUnit
+        # (TODO) use stdX/YName to aid standardizing x/yUnit
         stdYUnit = None
+        stdYUnitScore = -1
         for subclass in subclassPools['yUnit']:
-            stdYUnit = stdYUnit or subclass.evaluate(yUnit)
+            result, score = subclass.evaluate(yUnit)
+            if score > stdYUnitScore:
+                stdYUnit = result
+                stdYUnitScore = score
         output['yUnit'] = stdYUnit
         # return
         return output
