@@ -149,6 +149,35 @@ class spectraHeaderParser(object):
         :returns: a dictionary {'xName': std xName, 'xUnit': std xUnit, 'yName': std yName, 'yUnit': std yUnit (or None as the value if no standard expression could be found)}
         :rtype: dict
         '''
+        # separate headers
+        xName, xUnit, yName, yUnit = self.separator(xheader, yheader)
+        # call mapping function
+        return self.mapping(xpath, xName, xUnit, yName, yUnit)
+
+    # mapping function
+    def mapping(self, xpath, xName, xUnit, yName, yUnit):
+        '''
+        Maps xName, xUnit, yName, yUnit with their corresponding std expression.
+        Returns the standardized x/yName/Unit
+
+        :param xpath: xpath of the spectra data headers
+        :type xpath: str
+
+        :param xName: parameter name for x axis as splitted from raw header str
+        :type xName: str
+
+        :param xUnit: unit for x axis as splitted from raw header str
+        :type xUnit: str
+
+        :param yName: parameter name for y axis as splitted from raw header str
+        :type yName: str
+
+        :param yUnit: unit for y axis as splitted from raw header str
+        :type yUnit: str
+
+        :returns: a dictionary {'xName': std xName, 'xUnit': std xUnit, 'yName': std yName, 'yUnit': std yUnit (or None as the value if no standard expression could be found)}
+        :rtype: dict
+        '''
         # init output
         output = {
             'xName': None,
@@ -156,8 +185,6 @@ class spectraHeaderParser(object):
             'yName': None,
             'yUnit': None
         }
-        # separate headers
-        xName, xUnit, yName, yUnit = self.separator(xheader, yheader)
         # read xpath to determine subclasses
         subclassPools = self.xpathReader(xpath)
         # for cases where multiple paired subclasses, need something to determine which one to use, for now we just assume only the correct subclass will return a string while other subclasses will return None (TODO)
