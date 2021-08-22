@@ -8,3 +8,6 @@ prepRawData.log
 
 # Irrelevant tests
 deprecated/*
+
+# xmls for update testing
+xml/*
