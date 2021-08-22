@@ -93,6 +93,9 @@ if __name__ == '__main__':
     from glob import glob
     xmls = glob("./xml/*.xml")
     for xml in xmls:
+        # skip previously generated xmls
+        if '_copy.xml' in xml:
+            continue
         shpxml.runOnXML(xml, createCopy=True)
         print('Done parsing headers for {}'.format(xml))
 
