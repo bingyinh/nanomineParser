@@ -11,7 +11,7 @@ class spectraHeaderParser(object):
         self.__loadSC__()
         pass
 
-    # header separator function (TODO)
+    # header separator function
     def separator(self, xheader, yheader):
         '''
         Splits each header string into a name string and a unit string
@@ -310,7 +310,6 @@ class spectraHeaderParser(object):
                     xNamesScores[score] = set()
                 xNamesScores[score].add(result)
         # standardize xUnit
-        # (TODO) use stdX/YName to aid standardizing x/yUnit
         for subclass in subclassPools['xUnit']:
             for xUnit in xUnits:
                 result, score = subclass.evaluate(xUnit)
